@@ -34,3 +34,9 @@ This project implements a **Data Warehouse** to process FX deals for Bloomberg. 
 - Maven
 - Docker & Docker Compose
 - Git
+
+
+images
+  ![Description of image](images/C1.png)
+  ![Description of image](images/C2.png)
+  ![Description of image](images/C3.png)
