@@ -1,0 +1,32 @@
+.PHONY: help build run stop clean test logs docker-build docker-up docker-down docker-restart
+
+build: ##
+	./mvnw clean package -DskipTests
+
+test: ##
+	./mvnw clean test
+
+run: ##
+	./mvnw spring-boot:run
+
+docker-build: ##
+	docker-compose build
+
+docker-up: ##
+	docker-compose up -d
+	@echo "Application is ready at http://localhost:8081"
+	@echo "PostgreSQL is available at localhost:5432"
+
+docker-down: ##
+	docker-compose down
+
+docker-restart: docker-down docker-up ##
+
+logs: ##
+	docker-compose logs -f app
+
+clean: ##
+	./mvnw clean
+	docker-compose down -v
+
+all: clean build docker-build docker-up ##
